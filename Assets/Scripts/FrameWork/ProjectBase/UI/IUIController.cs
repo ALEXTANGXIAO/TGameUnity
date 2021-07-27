@@ -1,0 +1,5 @@
+﻿
+interface IUIController
+{
+    void ResigterUIEvent();
+}

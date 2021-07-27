@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: ac601f6ed65fcdf46ab2bb68bc7d5b62
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bip001
+    100004: Bip001_Head
+    100006: Bip001_HeadNub
+    100008: Bip001_L_Calf
+    100010: Bip001_L_Clavicle
+    100012: Bip001_L_Finger0
+    100014: Bip001_L_Finger0Nub
+    100016: Bip001_L_Finger1
+    100018: Bip001_L_Finger1Nub
+    100020: Bip001_L_Foot
+    100022: Bip001_L_Forearm
+    100024: Bip001_L_Hand
+    100026: Bip001_L_Thigh
+    100028: Bip001_L_Toe0
+    100030: Bip001_L_Toe0Nub
+    100032: Bip001_L_UpperArm
+    100034: Bip001_Neck
+    100036: Bip001_Pelvis
+    100038: Bip001_R_Calf
+    100040: Bip001_R_Clavicle
+    100042: Bip001_R_Finger0
+    100044: Bip001_R_Finger0Nub
+    100046: Bip001_R_Finger1
+    100048: Bip001_R_Finger1Nub
+    100050: Bip001_R_Foot
+    100052: Bip001_R_Forearm
+    100054: Bip001_R_Hand
+    100056: Bip001_R_Thigh
+    100058: Bip001_R_Toe0
+    100060: Bip001_R_Toe0Nub
+    100062: Bip001_R_UpperArm
+    100064: Bip001_Spine
+    100066: Bip001_Spine1
+    100068: Body
+    100070: Eye_L
+    100072: Eye_R
+    100074: Mouth
+    100076: Yae_Sakura_C4_ER_L_01
+    100078: Yae_Sakura_C4_ER_L_02
+    100080: Yae_Sakura_C4_ER_L_03
+    100082: Yae_Sakura_C4_ER_L_04
+    100084: Yae_Sakura_C4_ER_R_01
+    100086: Yae_Sakura_C4_ER_R_02
+    100088: Yae_Sakura_C4_ER_R_03
+    100090: Yae_Sakura_C4_ER_R_04
+    100092: Yae_Sakura_C4_PiFeng_R_01
+    100094: Yae_Sakura_C4_PiFeng_R_02
+    100096: Yae_Sakura_C4_PiFeng_R_03
+    100098: Yae_Sakura_C4_PiFeng_R_04
+    400000: //RootNode
+    400002: Bip001
+    400004: Bip001_Head
+    400006: Bip001_HeadNub
+    400008: Bip001_L_Calf
+    400010: Bip001_L_Clavicle
+    400012: Bip001_L_Finger0
+    400014: Bip001_L_Finger0Nub
+    400016: Bip001_L_Finger1
+    400018: Bip001_L_Finger1Nub
+    400020: Bip001_L_Foot
+    400022: Bip001_L_Forearm
+    400024: Bip001_L_Hand
+    400026: Bip001_L_Thigh
+    400028: Bip001_L_Toe0
+    400030: Bip001_L_Toe0Nub
+    400032: Bip001_L_UpperArm
+    400034: Bip001_Neck
+    400036: Bip001_Pelvis
+    400038: Bip001_R_Calf
+    400040: Bip001_R_Clavicle
+    400042: Bip001_R_Finger0
+    400044: Bip001_R_Finger0Nub
+    400046: Bip001_R_Finger1
+    400048: Bip001_R_Finger1Nub
+    400050: Bip001_R_Foot
+    400052: Bip001_R_Forearm
+    400054: Bip001_R_Hand
+    400056: Bip001_R_Thigh
+    400058: Bip001_R_Toe0
+    400060: Bip001_R_Toe0Nub
+    400062: Bip001_R_UpperArm
+    400064: Bip001_Spine
+    400066: Bip001_Spine1
+    400068: Body
+    400070: Eye_L
+    400072: Eye_R
+    400074: Mouth
+    400076: Yae_Sakura_C4_ER_L_01
+    400078: Yae_Sakura_C4_ER_L_02
+    400080: Yae_Sakura_C4_ER_L_03
+    400082: Yae_Sakura_C4_ER_L_04
+    400084: Yae_Sakura_C4_ER_R_01
+    400086: Yae_Sakura_C4_ER_R_02
+    400088: Yae_Sakura_C4_ER_R_03
+    400090: Yae_Sakura_C4_ER_R_04
+    400092: Yae_Sakura_C4_PiFeng_R_01
+    400094: Yae_Sakura_C4_PiFeng_R_02
+    400096: Yae_Sakura_C4_PiFeng_R_03
+    400098: Yae_Sakura_C4_PiFeng_R_04
+    2100000: Avatar_Q_Sakura_C4_Material_Color
+    2100002: Sakura
+    2100004: Mouth
+    4300000: Body
+    4300002: Eye_L
+    4300004: Eye_R
+    4300006: Mouth
+    9500000: //RootNode
+    13700000: Body
+    13700002: Eye_L
+    13700004: Eye_R
+    13700006: Mouth
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
