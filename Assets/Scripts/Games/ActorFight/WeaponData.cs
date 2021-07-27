@@ -37,10 +37,16 @@ public class WeaponData : MonoBehaviour
 
     private void StandStill()
     {
+        PlayerSound();
         if (Character!= null)
         {
             Character.StandStill();
         }
         //EventCenter.Instance.EventTrigger(ActorEvent.StandStill);
+    }
+
+    private void PlayerSound()
+    {
+        AudioMgr.Instance.PlaySound("hit2");
     }
 }

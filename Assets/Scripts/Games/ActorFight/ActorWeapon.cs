@@ -20,6 +20,7 @@ public class ActorWeapon : MonoBehaviour
     public void EqEnable()
     {
         weaponData.state = WeaponData.STATE.ACTIVE;
+        AudioMgr.Instance.PlaySound("atk1");
     }
 
     /// <summary>

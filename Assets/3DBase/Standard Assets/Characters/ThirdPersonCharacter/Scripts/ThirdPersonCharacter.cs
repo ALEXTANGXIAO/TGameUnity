@@ -53,7 +53,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void StandStill()
         {
             m_AnimSpeedMultiplier = 0.002f;
-            Invoke("ResetSpeed", 0.08f);
+			//Invoke("ResetSpeed", 0.08f);
+			Invoke("ResetSpeed", 0.13f);
 		}
 
         private void ResetSpeed()
