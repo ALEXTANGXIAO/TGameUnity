@@ -5,9 +5,10 @@ using UnityEngine;
 public class ActorWeapon : MonoBehaviour
 {
     public WeaponData weaponData;
+    public GameActor actor;
 
     private const float MinValue = 0.8f;
-    private const float MaxValue = 1.3f;
+    private const float MaxValue = 1.5f;
     public float GetAtk()
     {
         var randomDamage = (int)Random.Range(MinValue * weaponData.ATK, MaxValue * weaponData.ATK);
@@ -21,6 +22,7 @@ public class ActorWeapon : MonoBehaviour
     {
         weaponData.state = WeaponData.STATE.ACTIVE;
         AudioMgr.Instance.PlaySound("atk1");
+        EventCenter.Instance.EventTrigger(CameraEvent.ShakeCamera, actor, 2f, 0.2f);
     }
 
     /// <summary>

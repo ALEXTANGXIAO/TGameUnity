@@ -190,6 +190,16 @@ class ActorMgr: BehaviourSingleton<ActorMgr>
         return m_ownActor;
     }
 
+    public bool IsMainPlayer(GameActor actor)
+    {
+        if (actor == m_ownActor)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     //----------------------------------------------------生命周期------------------------------------------------------------------//
     public override void LateUpdate()
     {

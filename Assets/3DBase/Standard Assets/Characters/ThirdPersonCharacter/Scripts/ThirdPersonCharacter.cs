@@ -50,11 +50,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             //EventCenter.Instance.AddEventListener(ActorEvent.StandStill, StandStill);
 		}
 
-        public void StandStill()
+        public void StandStill(float stillTime = 0.12f)
         {
             m_AnimSpeedMultiplier = 0.002f;
 			//Invoke("ResetSpeed", 0.08f);
-			Invoke("ResetSpeed", 0.13f);
+			Invoke("ResetSpeed", stillTime);
 		}
 
         private void ResetSpeed()

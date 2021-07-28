@@ -28,6 +28,16 @@ public class EventInfo<T,U> : IEventInfo
     }
 }
 
+public class EventInfo<T, U, W> : IEventInfo
+{
+    public UnityAction<T, U, W> actions;
+
+    public EventInfo(UnityAction<T, U, W> action)
+    {
+        actions += action;
+    }
+}
+
 public class EventInfo: IEventInfo
 {
     public UnityAction actions;
@@ -178,6 +188,18 @@ public class EventCenter : Singleton<EventCenter>
         }
     }
 
+    public void AddEventListener<T, U, W>(int eventid, UnityAction<T, U, W> action)
+    {
+        if (m_eventDic.ContainsKey(eventid))
+        {
+            (m_eventDic[eventid] as EventInfo<T, U, W>).actions += action;
+        }
+        else
+        {
+            m_eventDic.Add(eventid, new EventInfo<T, U , W>(action));
+        }
+    }
+
     public void AddEventListener(int eventid, UnityAction action)
     {
         if (m_eventDic.ContainsKey(eventid))
@@ -245,6 +267,18 @@ public class EventCenter : Singleton<EventCenter>
             if ((m_eventDic[eventid] as EventInfo<T,U>).actions != null)
             {
                 (m_eventDic[eventid] as EventInfo<T,U>).actions.Invoke(info,info2);
+            }
+        }
+    }
+
+    public void EventTrigger<T, U , W>(int eventid, T info, U info2, W info3)
+    {
+        if (m_eventDic.ContainsKey(eventid))
+        {
+            //直接执行委托eventDic[name]();
+            if ((m_eventDic[eventid] as EventInfo<T, U , W>).actions != null)
+            {
+                (m_eventDic[eventid] as EventInfo<T, U , W>).actions.Invoke(info, info2, info3);
             }
         }
     }

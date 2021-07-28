@@ -7,13 +7,14 @@ using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 
-public class GameActor
+public partial class GameActor
 {
     public GameActor(GameObject obj)
     {
         m_gameObject = obj;
         gameObject = m_gameObject;
         Character = m_gameObject.GetComponent<ThirdPersonCharacter>();
+        gameObject.GetComponent<ActorWeapon>().actor = this;
     }
 
     private GameObject m_gameObject;
@@ -23,6 +24,11 @@ public class GameActor
     {
         get;
         private set;
+    }
+
+    public Vector3 Position
+    {
+        get { return m_gameObject.transform.position; }
     }
     public uint ActorID { get; internal set; }
 
