@@ -32,6 +32,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		private bool m_IsAttack;
 		private bool m_IsSkill;
 
+        public Animator Animator
+        {
+            get
+            {
+                if (m_Animator == null)
+                {
+					m_Animator = GetComponent<Animator>();
+				}
+
+                return m_Animator;
+            }
+        }
+
 		void Start()
 		{
 			m_Animator = GetComponent<Animator>();

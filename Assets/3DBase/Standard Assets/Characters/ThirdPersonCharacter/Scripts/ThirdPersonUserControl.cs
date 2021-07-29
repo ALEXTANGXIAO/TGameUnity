@@ -113,15 +113,42 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Move *= 0.5f;
             }
 #endif
-            if (m_IsAttack)
-            {
-                m_Move = Vector3.zero;
-            }
+            //if (m_IsAttack)
+            //{
+            //    IsAttacking();
+            //    m_Move = Vector3.zero;
+            //}
+
+            IsAttacking();
 
             // pass all parameters to the character control script
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Character.Battle(m_IsAttack, m_IsSkill);
             m_Jump = false;
+        }
+
+        /// <summary>
+        /// 优化一般攻击中的思路，攻击中（Attack标签的）无法移动以免“滑冰”，攻击帧前提供前摇控制方向（瞬间转向）
+        /// </summary>
+        /// <returns></returns>
+        private bool IsAttacking()
+        {
+            //var name = m_Character.Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            AnimatorStateInfo info = m_Character.Animator.GetCurrentAnimatorStateInfo(0);
+            if (info.IsTag("Attack"))
+            {
+                if (info.normalizedTime <= 0.2f && info.normalizedTime >= 0)
+                {
+                    return false;
+                }
+
+                if (info.normalizedTime < 1.0f)
+                {
+                    m_Move = Vector3.zero;
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
