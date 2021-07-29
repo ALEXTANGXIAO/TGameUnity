@@ -8,6 +8,7 @@ public enum AnimDefine
     IsAttack = 1,
     IsSkill = 2,
     IsJump = 3,
+    IsDefence = 4,
 }
 
 public class ActorOnlineCmpt : MonoBehaviour
@@ -21,7 +22,7 @@ public class ActorOnlineCmpt : MonoBehaviour
     private bool m_IsAttack = false;
     private bool m_IsSkill = false;
     private bool m_IsJump = false;
-
+    private bool m_IsDefence = false;
     public void SetState(Vector3 selfpos,Vector3 moveVector3, float selfangle, int animation, int crouch)
     {
         selfPos = selfpos;
@@ -30,6 +31,7 @@ public class ActorOnlineCmpt : MonoBehaviour
         this.m_IsCrouch = crouch == 1;
         m_IsAttack = animation == (int)AnimDefine.IsAttack;
         m_IsSkill = animation == (int)AnimDefine.IsSkill;
+        m_IsDefence = animation == (int)AnimDefine.IsDefence;
         m_selfangle = selfangle;
     }
 
@@ -46,7 +48,7 @@ public class ActorOnlineCmpt : MonoBehaviour
         this.transform.position = Vector3.Lerp(this.transform.position, selfPos, 0.25f); //selfPos; 
         this.transform.eulerAngles = new Vector3(0, m_selfangle, 0);   
         m_Character.Move(MoveVector3, m_IsCrouch, m_IsJump);
-        m_Character.Battle(m_IsAttack, m_IsSkill);
+        m_Character.Battle(m_IsAttack, m_IsSkill, m_IsDefence);
     }
 }
 

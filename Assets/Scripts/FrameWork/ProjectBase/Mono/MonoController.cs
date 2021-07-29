@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class MonoController : MonoBehaviour
 {
     private event UnityAction updateEvent;
+    private event UnityAction fixedUpdateEvent;
 
     void Start()
     {
@@ -21,6 +22,24 @@ public class MonoController : MonoBehaviour
         {
             updateEvent();
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (fixedUpdateEvent != null)
+        {
+            fixedUpdateEvent();
+        }
+    }
+
+    public void AddFixedUpdateListener(UnityAction fun)
+    {
+        fixedUpdateEvent += fun;
+    }
+
+    public void RemoveFixedUpdateListener(UnityAction fun)
+    {
+        fixedUpdateEvent -= fun;
     }
 
     /// <summary>

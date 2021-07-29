@@ -46,6 +46,10 @@ class ActorPosCmpt : MonoBehaviour
         {
             return (int)AnimDefine.IsJump;
         }
+        if (m_playerController.IsDefence)
+        {
+            return (int)AnimDefine.IsDefence;
+        }
 
         return 0;
     }

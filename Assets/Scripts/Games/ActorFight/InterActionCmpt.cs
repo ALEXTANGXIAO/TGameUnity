@@ -7,6 +7,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class InterActionCmpt : MonoBehaviour
 {
     private Animator animator;
+    [System.NonSerialized]
     public ThirdPersonCharacter Character;
     public void Start()
     {

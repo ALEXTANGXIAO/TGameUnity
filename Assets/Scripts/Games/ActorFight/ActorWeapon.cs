@@ -21,6 +21,7 @@ public class ActorWeapon : MonoBehaviour
     /// </summary>
     public void EqEnable()
     {
+        weaponData.Capcollider.enabled = true;
         weaponData.state = WeaponData.STATE.ACTIVE;
         AudioMgr.Instance.PlaySound("atk1");
         EventCenter.Instance.EventTrigger(CameraEvent.ShakeCamera, actor, 2f, 0.2f);
@@ -36,6 +37,19 @@ public class ActorWeapon : MonoBehaviour
     /// </summary>
     public void EqDisable()
     {
+        weaponData.Capcollider.enabled = false;
+        weaponData.state = WeaponData.STATE.IDLE;
+    }
+
+    public void DefEnable()
+    {
+        weaponData.Capcollider.enabled = true;
+        weaponData.state = WeaponData.STATE.DEFACTIVE;
+    }
+
+    public void DefDisable()
+    {
+        weaponData.Capcollider.enabled = false;
         weaponData.state = WeaponData.STATE.IDLE;
     }
 }

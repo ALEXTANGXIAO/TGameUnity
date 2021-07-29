@@ -15,6 +15,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private bool m_IsAttack;
         private bool m_IsSkill;
+        private bool m_IsDefence;
+        public bool IsDefence
+        {
+            get { return m_IsDefence; }
+        }
         public bool IsAttack
         {
             get { return m_IsAttack; }
@@ -60,7 +65,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             //m_IsAttack = CrossPlatformInputManager.GetButton("Fire1");
             //m_IsSkill = CrossPlatformInputManager.GetButton("Fire2");
+            UpdateDefence();
             UpdateAttack();
+        }
+
+        private bool m_CacheDefence;
+        private void UpdateDefence()
+        {
+            m_CacheDefence = CrossPlatformInputManager.GetButton("Fire2");
+            if (m_CacheDefence)
+            {
+                m_IsDefence = true;
+                m_timer = 0.2f;
+            }
+            m_timer -= Time.deltaTime;
+
+            if (m_timer <= 0)
+            {
+                m_timer = 0.2f;
+                m_IsDefence = m_CacheDefence;
+            }
         }
 
         private bool m_CacheAttack;
@@ -78,7 +102,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 m_timer = 0.5f;
                 m_IsAttack = m_CacheAttack;
-                m_IsSkill = CrossPlatformInputManager.GetButton("Fire2");
+                //m_IsSkill = CrossPlatformInputManager.GetButton("Fire2");
             }
         }
 
@@ -123,9 +147,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             // pass all parameters to the character control script
             m_Character.Move(m_Move, crouch, m_Jump);
-            m_Character.Battle(m_IsAttack, m_IsSkill);
+            m_Character.Battle(m_IsAttack, m_IsSkill,m_IsDefence);
             m_Jump = false;
         }
+
+        AnimatorStateInfo info;
 
         /// <summary>
         /// 优化一般攻击中的思路，攻击中（Attack标签的）无法移动以免“滑冰”，攻击帧前提供前摇控制方向（瞬间转向）
@@ -134,8 +160,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool IsAttacking()
         {
             //var name = m_Character.Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-            AnimatorStateInfo info = m_Character.Animator.GetCurrentAnimatorStateInfo(0);
-            if (info.IsTag("Attack"))
+            info = m_Character.Animator.GetCurrentAnimatorStateInfo(0);
+            if (info.IsTag("Attack") || info.IsTag("Defence"))
             {
                 if (info.normalizedTime <= 0.2f && info.normalizedTime >= 0)
                 {

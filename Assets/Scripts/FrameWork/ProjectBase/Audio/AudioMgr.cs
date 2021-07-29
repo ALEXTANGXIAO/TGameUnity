@@ -90,7 +90,6 @@ public class AudioMgr : Singleton<AudioMgr>
             soundObject = new GameObject();
             soundObject.name = "Sound_"+ name;
         }
-
         ResourcesManager.Instance.LoadAsync<AudioClip>("Audio/" + name, (clip) =>
         {
             AudioSource source = soundObject.AddComponent<AudioSource>();

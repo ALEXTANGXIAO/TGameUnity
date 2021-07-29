@@ -778,7 +778,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7673444806806229464}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -5769,7 +5769,7 @@ GameObject:
   - component: {fileID: 3039328980519908350}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5800,7 +5800,7 @@ Animator:
   m_GameObject: {fileID: 7214589511186844826}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 74a0a32a2c814de42b6fdda08d718334, type: 3}
-  m_Controller: {fileID: 9100000, guid: 01b048ba5aae31c4c84a6763db44a3e6, type: 2}
+  m_Controller: {fileID: 22100000, guid: 77dfefb9ac96e6e40b4d8391bda4639e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -6038,7 +6038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9de3dfc3020bae4b8ce87d981bacdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 0}
 --- !u!114 &8929406804472187249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6051,4 +6050,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9de3dfc3020bae4b8ce87d981bacdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 0}

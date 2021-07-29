@@ -2523,6 +2523,57 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1.3
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.3
+  animaSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0083351135
+      value: 0.00019454956
+      inSlope: -0.0074476604
+      outSlope: -0.0074476604
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.07250655
+      value: -0.00028337748
+      inSlope: -0.011995975
+      outSlope: -0.011995975
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.97250706
+      value: -0.97199625
+      inSlope: -0.083068356
+      outSlope: -0.083068356
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.1521333
+    - serializedVersion: 3
+      time: 2.5578847
+      value: -0.99260676
+      inSlope: 0.0043279864
+      outSlope: 0.0043279864
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.2786511
+    - serializedVersion: 3
+      time: 7.3157883
+      value: -0.005104065
+      inSlope: 0.20754996
+      outSlope: 0.20754996
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &2644975667620605242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,6 +2587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 2385984572273092222}
+  IsShakeTest: 0
 --- !u!114 &8132029663453338865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2548,7 +2600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9de3dfc3020bae4b8ce87d981bacdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 0}
 --- !u!1 &7673444806887250039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,7 +2615,7 @@ GameObject:
   - component: {fileID: 2385984572273092222}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2639,7 +2690,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7673444806887250039}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

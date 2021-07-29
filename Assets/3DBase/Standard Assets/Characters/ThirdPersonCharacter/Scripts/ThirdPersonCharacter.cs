@@ -31,8 +31,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		private bool m_IsAttack;
 		private bool m_IsSkill;
-
-        public Animator Animator
+		private bool m_IsDefence;
+		public AnimationCurve AnimaSpeedCur;
+		public Animator Animator
         {
             get
             {
@@ -75,10 +76,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_AnimSpeedMultiplier = 1f;
 		}
 
-		public void Battle(bool attack, bool skill)
+		public void Battle(bool attack, bool skill,bool defence = false)
 		{
 			m_IsAttack = attack;
 			m_IsSkill = skill;
+			m_IsDefence = defence;
 		}
 
 		public void Move(Vector3 move, bool crouch, bool jump)
@@ -238,6 +240,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void HandleAttack()
 		{
+			if (m_IsDefence)
+			{
+				m_Animator.SetBool(AnimatorParamDefine.IsDefence, true);
+			}
+			else
+			{
+				m_Animator.SetBool(AnimatorParamDefine.IsDefence, false);
+			}
+
 			if (m_IsAttack)
 			{
 				m_Animator.SetBool(AnimatorParamDefine.IsAttack, true);
@@ -246,7 +257,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				m_Animator.SetBool(AnimatorParamDefine.IsAttack, false);
 			}
-
+			
 			//if (m_IsSkill)
 			//{
 			//	m_Animator.SetBool(AnimatorParamDefine.IsSkill, true);

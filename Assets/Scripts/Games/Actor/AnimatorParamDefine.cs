@@ -18,4 +18,7 @@ public static class AnimatorParamDefine
     public static int AttackType = Animator.StringToHash("AttackType");
     public static int IsSkill = Animator.StringToHash("IsSkill");
     public static int IsHurt = Animator.StringToHash("IsHurt");
+
+    public static int IsDefence = Animator.StringToHash("IsDefence");
+    public static int DefenceSuccess = Animator.StringToHash("DefenceSuccess");
 }

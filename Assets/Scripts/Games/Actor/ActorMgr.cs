@@ -205,4 +205,9 @@ class ActorMgr: BehaviourSingleton<ActorMgr>
     {
 
     }
+
+    public override void Update()
+    {
+
+    }
 }
