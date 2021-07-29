@@ -56,6 +56,26 @@ class CameraMgr: BehaviourSingleton<CameraMgr>
         }
     }
 
+    public void ShakeTest()
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        if (shakeHandle == null)
+        {
+            shakeHandle = mainCamera.GetComponent<ShakeCamera>();
+        }
+
+        if (shakeHandle != null)
+        {
+            shakeHandle.shakeLevel = 2f;
+            shakeHandle.setShakeTime = 0.2f;
+            shakeHandle.enabled = true;
+        }
+    }
+
     private void ChangeCamera(Camera camera)
     {
         mainCamera = camera;

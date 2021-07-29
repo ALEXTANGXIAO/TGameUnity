@@ -6,6 +6,7 @@ public class ActorWeapon : MonoBehaviour
 {
     public WeaponData weaponData;
     public GameActor actor;
+    public bool IsShakeTest = false;
 
     private const float MinValue = 0.8f;
     private const float MaxValue = 1.5f;
@@ -23,6 +24,11 @@ public class ActorWeapon : MonoBehaviour
         weaponData.state = WeaponData.STATE.ACTIVE;
         AudioMgr.Instance.PlaySound("atk1");
         EventCenter.Instance.EventTrigger(CameraEvent.ShakeCamera, actor, 2f, 0.2f);
+
+        if (IsShakeTest)
+        {
+            CameraMgr.Instance.ShakeTest();
+        }
     }
 
     /// <summary>

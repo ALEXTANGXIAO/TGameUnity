@@ -76,6 +76,13 @@
       "dependencies": {},
       "url": "https://packages-v2.unity.cn"
     },
+    "com.unity.postprocessing": {
+      "version": "2.3.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages-v2.unity.cn"
+    },
     "com.unity.purchasing": {
       "version": "2.1.0",
       "depth": 0,
