@@ -16,13 +16,34 @@ public class ActorWeapon : MonoBehaviour
         return randomDamage;
     }
 
+    public void SkillEnable(int level)
+    {
+        weaponData.Capcollider.enabled = true;
+        weaponData.Capcollider.radius = 2.5f;
+        weaponData.state = WeaponData.STATE.ACTIVE;
+        AudioMgr.Instance.PlaySound("atk1");
+        EventCenter.Instance.EventTrigger(CameraEvent.ShakeCamera, actor, (float)level, level * 0.2f);
+
+        if (IsShakeTest)
+        {
+            CameraMgr.Instance.ShakeTest(level,level *0.12f);
+        }
+    }
+
+    public void SkillDisable()
+    {
+        weaponData.Capcollider.enabled = false;
+        weaponData.Capcollider.radius = 0.5f;
+        weaponData.state = WeaponData.STATE.IDLE;
+    }
+
     /// <summary>
     /// 伤害开始
     /// </summary>
     public void EqEnable()
     {
         weaponData.Capcollider.enabled = true;
-        weaponData.Capcollider.radius = 0.5f;
+        weaponData.Capcollider.radius = 2.5f;
         weaponData.state = WeaponData.STATE.ACTIVE;
         AudioMgr.Instance.PlaySound("atk1");
         EventCenter.Instance.EventTrigger(CameraEvent.ShakeCamera, actor, 2f, 0.2f);
@@ -39,6 +60,7 @@ public class ActorWeapon : MonoBehaviour
     public void EqDisable()
     {
         weaponData.Capcollider.enabled = false;
+        weaponData.Capcollider.radius = 0.5f;
         weaponData.state = WeaponData.STATE.IDLE;
     }
 

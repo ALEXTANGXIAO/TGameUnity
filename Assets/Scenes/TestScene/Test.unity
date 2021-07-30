@@ -1177,7 +1177,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7011234545685138935}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -6244,17 +6244,17 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 1
     - serializedVersion: 3
-      time: 0.1005954
-      value: -0.04117322
-      inSlope: -1.3761873
-      outSlope: -1.3761873
+      time: 0.100596495
+      value: -0.16724476
+      inSlope: -3.5872736
+      outSlope: -3.5872736
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.164957
-      value: -0.13589475
+      time: 0.62447524
+      value: -1.2290899
       inSlope: 0.037600238
       outSlope: 0.037600238
       tangentMode: 0
@@ -6262,8 +6262,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.11683442
     - serializedVersion: 3
-      time: 0.5448674
-      value: -0.13225274
+      time: 0.8656683
+      value: -1.1284838
       inSlope: 0.116889216
       outSlope: 0.116889216
       tangentMode: 0
@@ -6271,14 +6271,14 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.07426434
     - serializedVersion: 3
-      time: 0.99716187
-      value: -0.0002632141
-      inSlope: 0.2918221
-      outSlope: 0.2918221
+      time: 1.0083923
+      value: -0.97846603
+      inSlope: 1.0511035
+      outSlope: 1.0511035
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

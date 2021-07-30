@@ -257,19 +257,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				m_Animator.SetBool(AnimatorParamDefine.IsAttack, false);
 			}
-			
-			//if (m_IsSkill)
-			//{
-			//	m_Animator.SetBool(AnimatorParamDefine.IsSkill, true);
-			//}
-			//else
-			//{
-			//	m_Animator.SetBool(AnimatorParamDefine.IsSkill, false);
-			//}
-		}
+
+            if (m_IsSkill)
+            {
+                m_Animator.SetBool(AnimatorParamDefine.IsSkill, true);
+            }
+            else
+            {
+                m_Animator.SetBool(AnimatorParamDefine.IsSkill, false);
+            }
+        }
 
 
-		public void OnAnimatorMove()
+        public void OnAnimatorMove()
 		{
 			// we implement this function to override the default root motion.
 			// this allows us to modify the positional speed before it's applied.

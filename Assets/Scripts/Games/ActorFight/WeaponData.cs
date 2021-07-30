@@ -104,7 +104,7 @@ public class WeaponData : MonoBehaviour
         }
         Character.Animator.SetBool(AnimatorParamDefine.IsAttack,false);
         //hurt//Damage_Front_Big_ver_A
-        Character.Animator.CrossFade("hurt", 0,0,0);
+        Character.Animator.CrossFade("Grounded", 0,0,0);
         Character.Animator.SetFloat("AnimaSpeed", 1);               //播放速度恢复正常
     }
 

@@ -56,7 +56,7 @@ class CameraMgr: BehaviourSingleton<CameraMgr>
         }
     }
 
-    public void ShakeTest()
+    public void ShakeTest(float shakeLevel = 2f,float setShakeTime = 0.2f)
     {
         if (mainCamera == null)
         {
@@ -70,8 +70,8 @@ class CameraMgr: BehaviourSingleton<CameraMgr>
 
         if (shakeHandle != null)
         {
-            shakeHandle.shakeLevel = 2f;
-            shakeHandle.setShakeTime = 0.2f;
+            shakeHandle.shakeLevel = shakeLevel;
+            shakeHandle.setShakeTime = setShakeTime;
             shakeHandle.enabled = true;
         }
     }
