@@ -1,4 +1,0 @@
-repository "Game@ssl://alextang2@sh03-plasticscm.unity.cn:8787"
-  path "/"
-    smartbranch "/main/574809918" 
-     
