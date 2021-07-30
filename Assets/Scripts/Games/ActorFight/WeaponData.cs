@@ -29,7 +29,17 @@ public class WeaponData : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        bool IsWeapon = collider.gameObject.tag.Equals("Weapon");
+#if UNITY_EDITOR
+        //print(this.name + "is hitting" + collider.name);
+        //print(im);
+#endif
+        bool IsWeapon = collider.tag.Equals("Weapon");
+        bool IsPlayer= collider.tag.Equals("Player");
+        if (!IsPlayer &&!IsWeapon)
+        {
+            return;
+        }
+
         //攻击方
         if (state == STATE.ACTIVE)
         {
@@ -38,16 +48,14 @@ public class WeaponData : MonoBehaviour
             {
                 StandStill();
                 colliderActionCmpt.BeAttacked(ImActionCmpt);
-#if UNITY_EDITOR
-                //print(this.name + "is hitting" + collider.name);
-                //print(im);
-#endif
+
             }
+            //砍中武器了
             else if (IsWeapon)
             {
                 Capcollider.enabled = false;
                 state = STATE.IDLE;
-                SetAnimaSpeed();
+                StartCoroutine(BeBlocked());
             }
         }
         //被攻击方
@@ -56,6 +64,7 @@ public class WeaponData : MonoBehaviour
             if (IsWeapon)
             {
                 Character.Animator.SetBool(AnimatorParamDefine.DefenceSuccess, true);
+                Invoke("ResetDefence",0.5f);
             }
             print(this.name + "is DEFACTIVE" + collider.name);
         }
@@ -78,11 +87,37 @@ public class WeaponData : MonoBehaviour
 
     float timer = 0;
     float animaSpeed = 1;
+
+    /// <summary>
+    /// 被格挡了
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator BeBlocked()
+    {
+        Debug.LogError("Be Blocked");
+        //OnAnimation_CloseWeaponCollier();       //关闭武器碰撞盒
+        timer = 0;
+        while (timer < 1.3f)                    //弹反动画播放0.8s
+        {
+            SetAnimaSpeed();
+            yield return new WaitForFixedUpdate();
+        }
+        Character.Animator.SetBool(AnimatorParamDefine.IsAttack,false);
+        //hurt//Damage_Front_Big_ver_A
+        Character.Animator.CrossFade("hurt", 0,0,0);
+        Character.Animator.SetFloat("AnimaSpeed", 1);               //播放速度恢复正常
+    }
+
     //设置格挡回弹时的速度
     public void SetAnimaSpeed()
     {
         timer += Time.fixedDeltaTime;                   //计时
         animaSpeed = Character.AnimaSpeedCur.Evaluate(timer);     //读取曲线数据
         Character.Animator.SetFloat("AnimaSpeed", animaSpeed);    //设置播放速度
+    }
+
+    private void ResetDefence()
+    {
+        Character.Animator.SetBool(AnimatorParamDefine.DefenceSuccess, false);
     }
 }

@@ -9,10 +9,18 @@ public class InterActionCmpt : MonoBehaviour
     private Animator animator;
     [System.NonSerialized]
     public ThirdPersonCharacter Character;
+
+    private ActorWeapon actorWeapon;
+
+    public Vector3 WeaponPosition
+    {
+        get { return actorWeapon.weaponData.transform.position; }
+    }
     public void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         Character = gameObject.GetComponent<ThirdPersonCharacter>();
+        actorWeapon = gameObject.GetComponent<ActorWeapon>();
     }
 
     public bool BeAttacked(InterActionCmpt attacker)
@@ -22,6 +30,7 @@ public class InterActionCmpt : MonoBehaviour
             return false;
         }
 
+        CheckAttackDir(attacker.WeaponPosition);
         var damege = attacker.gameObject.GetComponent<ActorWeapon>().GetAtk();
 #if UNITY_EDITOR
         print("Do Damage is called.:" + attacker.name + "is attacking" + name + " Damege is:" + damege);
@@ -36,5 +45,23 @@ public class InterActionCmpt : MonoBehaviour
             animator.SetTrigger(AnimatorParamDefine.IsHurt);
         }
         return true;
+    }
+
+    //检测攻击方向
+    void CheckAttackDir(Vector3 weaponPosition)
+    {
+        Vector3 Dir = weaponPosition - transform.position;      //从玩家指向敌人攻击源
+        float angle = Vector3.Angle(transform.right, Dir);      //计算Dir与角色右方的夹角
+        Debug.Log(angle);
+        if (angle < 90)                                         //夹角<90度往右格挡
+        {
+            //isRightB = true;
+            Debug.Log("Is isRight");
+        }
+        else
+        {
+            //isRightB = false;                                   //否则往左格挡
+            Debug.Log("Is isLeft");
+        }
     }
 }
