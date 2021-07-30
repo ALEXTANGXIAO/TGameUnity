@@ -6,6 +6,13 @@ public class TestAnimations : MonoBehaviour
     public AnimationClip[] clips;
     public Animator anim;
     public int Index;
+
+    private void Start()
+    {
+        anim = this.GetComponent<Animator>();
+        clips = anim.runtimeAnimatorController.animationClips;
+    }
+
     private void Update()
     {
         AnimationChange();
