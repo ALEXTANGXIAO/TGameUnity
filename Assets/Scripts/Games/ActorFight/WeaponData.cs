@@ -94,10 +94,12 @@ public class WeaponData : MonoBehaviour
     /// <returns></returns>
     public IEnumerator BeBlocked()
     {
+        StandStill(0.2f);
         Debug.LogError("Be Blocked");
+        AudioMgr.Instance.PlaySound("IsDefence");
         //OnAnimation_CloseWeaponCollier();       //关闭武器碰撞盒
         timer = 0;
-        while (timer < 1.3f)                    //弹反动画播放0.8s
+        while (timer < 0.8f)                    //弹反动画播放0.8s
         {
             SetAnimaSpeed();
             yield return new WaitForFixedUpdate();
