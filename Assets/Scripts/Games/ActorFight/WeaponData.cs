@@ -97,17 +97,36 @@ public class WeaponData : MonoBehaviour
         StandStill(0.2f);
         Debug.LogError("Be Blocked");
         AudioMgr.Instance.PlaySound("IsDefence");
-        //OnAnimation_CloseWeaponCollier();       //关闭武器碰撞盒
-        timer = 0;
-        while (timer < 0.8f)                    //弹反动画播放0.8s
+
+        if (IsSkill())
         {
-            SetAnimaSpeed();
-            yield return new WaitForFixedUpdate();
+            yield return null;
         }
-        Character.Animator.SetBool(AnimatorParamDefine.IsAttack,false);
-        //hurt//Damage_Front_Big_ver_A
-        Character.Animator.CrossFade("Grounded", 0,0,0);
-        Character.Animator.SetFloat("AnimaSpeed", 1);               //播放速度恢复正常
+        else
+        {
+            //OnAnimation_CloseWeaponCollier();       //关闭武器碰撞盒
+            timer = 0;
+            while (timer < 0.8f)                    //弹反动画播放0.8s
+            {
+                SetAnimaSpeed();
+                yield return new WaitForFixedUpdate();
+            }
+            Character.Animator.SetBool(AnimatorParamDefine.IsAttack, false);
+            //hurt//Damage_Front_Big_ver_A
+            Character.Animator.CrossFade("Grounded", 0, 0, 0);
+            Character.Animator.SetFloat("AnimaSpeed", 1);               //播放速度恢复正常
+        }
+    }
+
+    private bool IsSkill()
+    {
+        //var name = m_Character.Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+        var info = Character.Animator.GetCurrentAnimatorStateInfo(0);
+        if (info.IsTag("AttackSkill"))
+        {
+            return true;
+        }
+        return false;
     }
 
     //设置格挡回弹时的速度

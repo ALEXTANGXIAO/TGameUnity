@@ -180,7 +180,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             //var name = m_Character.Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             info = m_Character.Animator.GetCurrentAnimatorStateInfo(0);
-            if (info.IsTag("Attack"))
+            if (info.IsTag("Attack") || info.IsTag("AttackSkill"))
             {
                 if (info.normalizedTime <= 0.2f && info.normalizedTime >= 0)
                 {
