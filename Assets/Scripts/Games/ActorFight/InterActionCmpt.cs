@@ -65,3 +65,43 @@ public class InterActionCmpt : MonoBehaviour
         }
     }
 }
+
+
+
+public class DamageCheckEventArgs : EventArgs
+{
+    public enum DamageType
+    {
+        Instant = 0,
+        Delay = 1,
+    }
+
+    public enum EquipmentStatus
+    {
+        
+    }
+    public DamageType damageType;
+    public EquipmentStatus senderEquip;
+    public Vector3 senderPos;
+    public int senderDirect;
+    public int senderCamp;
+
+    public void StandStill(float time)
+    {
+        //UpperAnim[playingAnimString].speed = 0f;
+        //standAnimString = playingAnimString;
+        //standstillTime = time;
+        //Debug.Log(playingAnimString);
+    }
+
+    public class EventManager : UnitySingleton<EventManager>
+    {
+        public delegate void EventHandler(object sender, DamageCheckEventArgs e);
+        public event EventHandler DamageCheckEvent;
+
+        public void DamageCheck(object sender, DamageCheckEventArgs e)
+        {
+            DamageCheckEvent(sender, e);
+        }
+    }
+}

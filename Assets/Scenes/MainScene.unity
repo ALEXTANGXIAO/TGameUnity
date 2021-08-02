@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetFrameRate: 300
-  hostPoint: 0
+  hostPoint: 1
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
