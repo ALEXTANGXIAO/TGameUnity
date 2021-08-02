@@ -67,6 +67,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             //m_IsSkill = CrossPlatformInputManager.GetButton("Fire2");
             UpdateDefence();
             UpdateAttack();
+            UpdateSkill();
         }
 
         private bool m_CacheDefence;
@@ -103,6 +104,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_timer = 0.5f;
                 m_IsAttack = m_CacheAttack;
                 //m_IsSkill = CrossPlatformInputManager.GetButton("Fire2");
+            }
+        }
+
+        private bool m_CacheSkill;
+        private void UpdateSkill()
+        {
+            m_CacheSkill = CrossPlatformInputManager.GetButton("Q");
+            if (m_CacheSkill)
+            {
+                m_IsSkill = true;
+                m_timer = 0.2f;
+            }
+            m_timer -= Time.deltaTime;
+
+            if (m_timer <= 0)
+            {
+                m_timer = 0.2f;
+                m_IsSkill = m_CacheSkill;
             }
         }
 
@@ -161,7 +180,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             //var name = m_Character.Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             info = m_Character.Animator.GetCurrentAnimatorStateInfo(0);
-            if (info.IsTag("Attack") || info.IsTag("Defence"))
+            if (info.IsTag("Attack") || info.IsTag("AttackSkill"))
             {
                 if (info.normalizedTime <= 0.2f && info.normalizedTime >= 0)
                 {
@@ -173,6 +192,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     m_Move = Vector3.zero;
                     return true;
                 }
+            }else if (info.IsTag("Defence"))
+            {
+                m_Move = Vector3.zero;
+                return true;
             }
             return false;
         }

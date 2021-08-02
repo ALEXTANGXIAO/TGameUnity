@@ -15,10 +15,25 @@ public class TestActor : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.T))
+        {
+            LoopDefence = true;
+        }
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            LoopDefence = false;
+        }
+
         if (LoopDefence)
         {
             m_Character.Move(Vector3.zero, false, false);
             m_Character.Battle(false, false, true);
+        }
+        else
+        {
+            m_Character.Move(Vector3.zero, false, false);
+            m_Character.Battle(false, false, false);
         }
     }
 }
