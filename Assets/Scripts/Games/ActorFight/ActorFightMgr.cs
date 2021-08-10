@@ -16,7 +16,7 @@ class ActorFightMgr:BehaviourSingleton<ActorFightMgr>
 
     private void Init()
     {
- 
+        
     }
 
     private void RegisterEvent()

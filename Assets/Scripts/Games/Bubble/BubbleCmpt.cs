@@ -23,8 +23,6 @@ class BubbleCmpt:MonoBehaviour
 
     private float m_wordDestroyTime;    // 最近一次台词消失时间
     private float m_nextNewWordStarTime;    // 下一次台词开始时间
-    private bool m_isWordDestroy = true;           // 台词是否被删除了的标识
-    private const float FIRST_WORD_START_WAIT_TIME = 5;    // 第一句台词开始前需要等待的时间
     private GameTimer m_timerUpdateBubble;
 
 
@@ -72,19 +70,9 @@ class BubbleCmpt:MonoBehaviour
 
     public void AddNewBubble(string content)
     {
-        //已经在冒泡了
-        //var info = m_mgr.GetBubbleInfo();
-
-        //if (info.ContainsKey(OwnActor))
-        //{
-        //    return;
-        //}
-
         m_nextNewWordStarTime = Time.realtimeSinceStartup + 1;
 
         m_wordDestroyTime = 3 + Time.realtimeSinceStartup;
-
-        //info.Add(OwnActor, m_nextNewWordStarTime);
 
         EventCenter.Instance.EventTrigger<GameObject,string>(BubbleEvent.AddNewBubble,OwnActor,content);
     }

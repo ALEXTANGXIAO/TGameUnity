@@ -145,7 +145,6 @@ public class DTransform
         float CemeraYRotationAngle = trans.eulerAngles.y * Mathf.Deg2Rad;
         sin = (float)Mathf.Sin(CemeraYRotationAngle);
         cos = (float)Mathf.Cos(CemeraYRotationAngle);
-
     }
 
     public static Vector3 GetXZForward(Vector3 pos1, Vector3 pos2)
