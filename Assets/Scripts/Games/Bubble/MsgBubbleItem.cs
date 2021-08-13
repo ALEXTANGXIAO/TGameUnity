@@ -56,7 +56,7 @@ public class MsgBubbleItem
         if (WorldCamera == null || m_tfPosNode == null) return;
 
         Vector3 pos = m_tfPosNode.position;
-        pos.y = (float)(pos.y + 2.8);
+        pos.y = (float)(pos.y + 2.6);
 
         Root.transform.position = DTransform.GetNamePos(pos, WorldCamera.transform.position, m_radius);
         Root.transform.rotation = WorldCamera.transform.rotation;
