@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-class ActorNameEntity
+public class ActorNameEntity
 {
     private GameActor m_actor;
     public GameActor Actor
@@ -84,7 +84,12 @@ class ActorNameEntity
 
     private void RegisterEvent()
     {
+        //EventCenter.Instance.AddEventListener<GameActor>(ActorEvent.HeartHandle, HurtHandle);
+    }
 
+    public void HurtHandle(float value)
+    {
+        m_attackHp.Update(value);
     }
 
     public void ReInit(GameObject go, string content)

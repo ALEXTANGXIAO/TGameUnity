@@ -33,6 +33,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		private bool m_IsSkill;
 		private bool m_IsDefence;
 		public AnimationCurve AnimaSpeedCur;
+
+        public GameActor GameActor;
 		public Animator Animator
         {
             get

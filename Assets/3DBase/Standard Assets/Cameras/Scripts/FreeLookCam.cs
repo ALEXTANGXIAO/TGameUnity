@@ -6,13 +6,6 @@ namespace UnityStandardAssets.Cameras
 {
     public class FreeLookCam : PivotBasedCameraRig
     {
-        // This script is designed to be placed on the root object of a camera rig,
-        // comprising 3 gameobjects, each parented to the next:
-
-        // 	Camera Rig
-        // 		Pivot
-        // 			Camera
-
         [SerializeField] private float m_MoveSpeed = 1f;                      // How fast the rig will move to keep up with the target's position.
         [Range(0f, 10f)] [SerializeField] private float m_TurnSpeed = 1.5f;   // How fast the rig will rotate from user input.
         [SerializeField] private float m_TurnSmoothing = 0.0f;                // How much smoothing to apply to the turn input, to reduce mouse-turn jerkiness
@@ -31,7 +24,6 @@ namespace UnityStandardAssets.Cameras
         protected override void Awake()
         {
             base.Awake();
-            // Lock or unlock the cursor.
             Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = !m_LockCursor;
 			m_PivotEulers = m_Pivot.rotation.eulerAngles;

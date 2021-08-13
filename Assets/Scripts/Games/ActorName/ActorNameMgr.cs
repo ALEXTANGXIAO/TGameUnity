@@ -69,6 +69,7 @@ public class ActorNamePool
         {
             item = m_cacheQueue.Count > 0 ? m_cacheQueue.Dequeue() : CreateNewEntity();
             item.Actor = actor;
+            actor.NameEntity = item;
             m_itemDic.Add(actor.gameObject, item);
             m_listItem.Add(item);
         }

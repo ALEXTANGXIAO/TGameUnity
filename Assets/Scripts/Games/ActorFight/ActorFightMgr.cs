@@ -22,7 +22,7 @@ class ActorFightMgr:BehaviourSingleton<ActorFightMgr>
     private void RegisterEvent()
     {
         EventCenter.Instance.AddEventListener<GameActor>(ActorEvent.AttackHandle, AttackHandle);
-        EventCenter.Instance.AddEventListener<GameActor>(ActorEvent.HeartHandle, HeartHandle);
+        //EventCenter.Instance.AddEventListener<GameActor>(ActorEvent.HeartHandle, HeartHandle);
     }
 
     private void AttackHandle(GameActor actor)
@@ -31,7 +31,7 @@ class ActorFightMgr:BehaviourSingleton<ActorFightMgr>
         {
             return;
         }
-        actor.Character.StandStill();
+        //actor.Character.StandStill();
     }
 
     private void HeartHandle(GameActor actor)
@@ -40,6 +40,6 @@ class ActorFightMgr:BehaviourSingleton<ActorFightMgr>
         {
             return;
         }
-        actor.Character.StandStill();
+        //actor.Character.StandStill();
     }
 }

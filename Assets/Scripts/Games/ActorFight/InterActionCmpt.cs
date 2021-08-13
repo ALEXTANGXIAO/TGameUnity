@@ -6,6 +6,8 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class InterActionCmpt : MonoBehaviour
 {
+    public int Hp = 1000;
+
     private Animator animator;
     [System.NonSerialized]
     public ThirdPersonCharacter Character;
@@ -31,9 +33,10 @@ public class InterActionCmpt : MonoBehaviour
         }
 
         CheckAttackDir(attacker.WeaponPosition);
-        var damege = attacker.gameObject.GetComponent<ActorWeapon>().GetAtk();
+        var damage = (int)attacker.gameObject.GetComponent<ActorWeapon>().GetAtk();
+        Heart(damage);
 #if UNITY_EDITOR
-        print("Do Damage is called.:" + attacker.name + "is attacking" + name + " Damege is:" + damege);
+        print("Do Damage is called.:" + attacker.name + "is attacking" + name + " Damege is:" + damage);
 #endif
         if (animator!= null)
         {
@@ -45,6 +48,14 @@ public class InterActionCmpt : MonoBehaviour
             animator.SetTrigger(AnimatorParamDefine.IsHurt);
         }
         return true;
+    }
+
+    void Heart(int damage)
+    {
+        Hp = Hp - damage;
+
+        float value = Hp /(float) 1000;
+        EventCenter.Instance.EventTrigger(ActorEvent.HeartHandle,Character.GameActor, value);
     }
 
     //检测攻击方向

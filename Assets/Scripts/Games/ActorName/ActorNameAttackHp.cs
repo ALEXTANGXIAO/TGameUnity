@@ -13,13 +13,9 @@ class ActorNameAttackHp : ActorNameBase
     {
     }
 
-    public void Update(GameActor mActor)
+    public void Update(float value)
     {
-        if (mActor != null)
-        {
-            //var hpPct = ActorDataUtil.GetHpValue(mActor);
-            m_hp.fillAmount = 1;
-        }
+        m_hp.fillAmount = value;
     }
 
     public override void OnVisibleStateChange(bool visible)

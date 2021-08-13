@@ -14,7 +14,23 @@ public partial class GameActor
         m_gameObject = obj;
         gameObject = m_gameObject;
         Character = m_gameObject.GetComponent<ThirdPersonCharacter>();
+        Character.GameActor = this;
         gameObject.GetComponent<ActorWeapon>().actor = this;
+        ResigterEvent();
+    }
+
+    private void ResigterEvent()
+    {
+        EventCenter.Instance.AddEventListener<GameActor,float>(ActorEvent.HeartHandle, HeartHandle);
+    }
+
+    private void HeartHandle(GameActor actor,float value)
+    {
+        if (this != actor)
+        {
+            return;
+        }
+        NameEntity.HurtHandle(value);
     }
 
     private GameObject m_gameObject;
@@ -25,6 +41,8 @@ public partial class GameActor
         get;
         private set;
     }
+
+    public ActorNameEntity NameEntity;
 
     public Vector3 Position
     {
