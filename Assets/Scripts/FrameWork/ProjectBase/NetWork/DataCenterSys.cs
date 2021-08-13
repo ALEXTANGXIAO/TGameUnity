@@ -39,5 +39,4 @@ class DataCenterSys : BaseLogicSys<DataCenterSys>
             m_listModule.Add(module);
         }
     }
-
 }

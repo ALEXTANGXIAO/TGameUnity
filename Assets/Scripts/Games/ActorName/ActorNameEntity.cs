@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 class ActorNameEntity
@@ -12,7 +7,7 @@ class ActorNameEntity
     public GameActor Actor
     {
         get { return m_actor; }
-        private set { m_actor = value; }
+        set { m_actor = value; }
     }
 
     public Image m_spriteBg;                // Name底图
@@ -37,12 +32,59 @@ class ActorNameEntity
 
     public GameObject Root { private set; get; }
 
+    //是否可以显示血条
+    private bool m_hpVisible;
+    public bool HpVisible
+    {
+        get { return m_hpVisible; }
+        set
+        {
+            if (m_hpVisible != value)
+            {
+                m_hpVisible = value;
+                //OnVisibleChanged();
+            }
+        }
+    }
+
+    private RectTransform m_rootTrans;
+    private RectTransform m_textTrans;
+    private RectTransform m_effectTrans;
+    private RectTransform m_specialTrans;
+    private GameObject m_spriteObj;
+    private GameObject m_textObj;
+    private GameObject m_effectObj;
+    private GameObject m_specialObj;
+
+    static readonly Vector3 HidePos = new Vector3(50000, 50000, 50000);
 
     public ActorNameEntity(GameObject go)
     {
         Root = go;
         //m_spriteBg = UnityUtil.FindChildComponent<Image>(Root.transform, "m_imgBg");
         m_textContent = UnityUtil.FindChildComponent<Text>(Root.transform, "m_textContent");
+
+        InitWidget();
+        RegisterEvent();
+    }
+    private ActorNameAttackHp m_attackHp;
+
+    private void InitWidget()
+    {
+        RectTransform transAttackHp = UnityUtil.FindChildComponent<RectTransform>(Root.transform, "PosAttackHp");
+        m_attackHp = new ActorNameAttackHp();
+        m_attackHp.Init(transAttackHp, m_textTrans, m_effectTrans, m_specialTrans);
+
+        if (m_actor == ActorMgr.Instance.GetMainPlayer())
+        {
+            m_attackHp.SetActive(false);
+        }
+        //m_attackHp.SetActive(false);
+    }
+
+    private void RegisterEvent()
+    {
+
     }
 
     public void ReInit(GameObject go, string content)
@@ -51,6 +93,10 @@ class ActorNameEntity
         m_tfPosNode = go.transform;
         m_textContent.text = content;
 
+        if (m_actor == ActorMgr.Instance.GetMainPlayer())
+        {
+            m_attackHp.SetActive(false);
+        }
         // 更新提示坐标
         UpdateTransform();
     }

@@ -473,9 +473,3 @@ public class GameClient : Singleton<GameClient>
         udpClient.Close();
     }
 }
-
-internal class MsgHandleDataToRmv
-{
-    public int m_msgCmd;
-    public CSMsgDelegate m_handle;
-};
