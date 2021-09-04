@@ -160,10 +160,10 @@ GameObject:
   - component: {fileID: 344774628847294550}
   - component: {fileID: 1736369483991514507}
   - component: {fileID: 6285548227440550486}
-  - component: {fileID: 6773043275868756200}
-  - component: {fileID: 5022460057936717397}
+  - component: {fileID: 6798597106442286690}
+  - component: {fileID: 7481525714610546581}
   m_Layer: 5
-  m_Name: Button
+  m_Name: m_btnAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6773043275868756200
+--- !u!114 &6798597106442286690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8018343158999313628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: a6e5c1789e000b24880fd53511bdf670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -264,22 +264,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8326629247699001013}
+  m_TargetGraphic: {fileID: 6285548227440550486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5022460057936717397}
-        m_MethodName: SetDownState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5022460057936717397
+      m_Calls: []
+--- !u!114 &7481525714610546581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,10 +277,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8018343158999313628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85bf3be603548374ca46f521a3aa7fda, type: 3}
+  m_Script: {fileID: 11500000, guid: 569acfe2309765c4880a70ecc045ba99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Fire1
+  pressDurationTime: 1
+  responseOnceByPress: 0
+  doubleClickIntervalTime: 0.5
+  onDoubleClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8326629247331824909
 GameObject:
   m_ObjectHideFlags: 0

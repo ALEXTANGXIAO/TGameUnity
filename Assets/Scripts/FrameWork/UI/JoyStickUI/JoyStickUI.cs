@@ -129,6 +129,7 @@ public class JoyStickUI : UIWindow
     private Image Img_bg;
     private Image Img_btn;
 
+    private ButtonExtension m_btnAttack;
     private Image moveRect;
     public string horizontalAxisName = "Horizontal";    // The name given to the horizontal axis for the cross platform input
     public string verticalAxisName = "Vertical";        // The name given to the vertical axis for the cross platform input
@@ -140,10 +141,25 @@ public class JoyStickUI : UIWindow
         Img_bg = FindChildComponent<Image>("touchRect/Img_bg");
         Img_btn = FindChildComponent<Image>("touchRect/Img_bg/Img_btn");
         moveRect = FindChildComponent<Image>("moveRect");
+        m_btnAttack = FindChildComponent<ButtonExtension>("m_btnAttack");
         if (type != JoyStickType.Normal)
         {
             Img_bg.gameObject.SetActive(false);
         }
+        m_btnAttack.onClick.AddListener(Attack);
+        m_btnAttack.onPress.AddListener(Attack);
+        m_btnAttack.onClickUp.AddListener(DisAttack);
+        //m_btnAttack.onDoubleClick.AddListener(DoubleClick);
+    }
+
+    private void Attack()
+    {
+        CrossPlatformInputManager.SetButtonDown("Fire1");
+    }
+
+    private void DisAttack()
+    {
+        CrossPlatformInputManager.SetButtonUp("Fire1");
     }
 
     protected override void RegisterEvent()
